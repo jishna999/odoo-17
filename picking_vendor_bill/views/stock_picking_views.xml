@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="picking_vendor_bill_stock_picking_form_view">
+            <field name="name">picking.vendor.bill_stock.picking.form.view</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="%(picking_vendor_bill.picking_vendor_bill_action_create_vendor_bill_wizard)d"
+                            type="action"
+                            string="Create Bill"
+                            invisible="state == 'assigned'"
+                            class="oe_highlight"/>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button class="oe_stat_button"
+                            type="object"
+                            name="action_view_invoice"
+                            icon="fa-pencil-square-o"
+                            invisible="invoice_count == 0">
+                        <field string="Vendor Bills" name="invoice_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

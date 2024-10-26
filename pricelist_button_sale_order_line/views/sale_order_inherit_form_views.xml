@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="sale_order_inherit_pricelist_from_view">
+            <field name="name">sale_order.inherit.pricelist.from.view</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='order_lines']/field[@name='order_line']/tree/field[@name='price_total']" position="after">
+                    <button id="select_price_list" name="%(pricelist_button_sale_order_line.action_select_pricelist)d"
+                            string="Select Price list" type="action" class="oe_highlight"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

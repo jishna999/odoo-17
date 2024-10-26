@@ -1,0 +1,19 @@
+<odoo>
+    <template id="report_custom_deliveryslip" inherit_id="stock.report_delivery_document">
+
+        <xpath expr="//table[@name='stock_move_table']//thead//tr//th[1]" position="after">
+            <th groups="sale_purchase_description_to_delivery.group_sale_order_purchase_order_description">Description</th>
+        </xpath>
+        <xpath expr="//table[@name='stock_move_table']//tbody//tr//td[1]" position="replace">
+            <td>
+                 <span t-field="move.product_id"/>
+            </td>
+        </xpath>
+        <xpath expr="//table[@name='stock_move_table']//tbody//tr//td[1]" position="after">
+            <td groups="sale_purchase_description_to_delivery.group_sale_order_purchase_order_description">
+                <span t-field="move.description_picking" />
+            </td>
+        </xpath>
+
+    </template>
+</odoo>

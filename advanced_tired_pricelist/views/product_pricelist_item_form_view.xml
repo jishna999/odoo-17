@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="advanced_tired_pricelist_form_view">
+            <field name="name">advanced.tired.pricelist.form.view</field>
+            <field name="model">product.pricelist.item</field>
+            <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='compute_price']" position="after">
+                    <field name="product_id" options="{'no_create':1}" invisible="compute_price != 'tiered'"/>
+                    <field name="tiered_ids" invisible="compute_price != 'tiered'">
+                        <tree editable="bottom">
+                            <field name="min_quantity"/>
+                            <field name="max_quantity"/>
+                            <field name="sale_price"/>
+                        </tree>
+                    </field>
+                </xpath>
+
+                <xpath expr="//form/sheet/group[3]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

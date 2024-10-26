@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+
+        <record id="sale_inherit_form_view_add_multiproduct" model="ir.ui.view">
+            <field name="name">sale.inherit.form.view.add.multiproduct</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='order_lines']/field[@name='order_line']" position="before">
+                    <button name="%(add_multiple_product.action_add_products)d"
+                            type="action"
+                            string="Add Products"
+                            class="oe_highlight"
+                            context="{'default_product_ids': False}"/>
+                </xpath>
+                <xpath expr="//page[@name='order_lines']/field[@name='order_line']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

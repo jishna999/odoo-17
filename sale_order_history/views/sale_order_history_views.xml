@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record id="view_order_form_inherit_sale_history" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit.sale.history</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='order_lines']" position="after">
+                    <page name="sale_order_history" string="Sale Order History">
+                        <button name="action_reorder" type="object"
+                                        string="Re order" class="oe_highlight"
+                                        />
+                        <field name="sale_order_history_ids">
+                            <tree>
+                                <field name="product_id"/>
+                                <field name="product_uom_qty"/>
+                                <field name="price_unit"/>
+                                <button name="action_reorder" type="object"
+                                        string="Re order" class="oe_highlight"
+                                        />
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

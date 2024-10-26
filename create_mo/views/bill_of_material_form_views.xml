@@ -1,0 +1,23 @@
+<odoo>
+  <data>
+
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="bom_inherited_form_view">
+      <field name="name">bom.inherited.form.view</field>
+      <field name="model">mrp.bom</field>
+      <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//form/sheet" position="before">
+          <header>
+            <button name="%(create_mo.action_create_manufacture_order)d"
+                            type="action"
+                            string="Create Manufacture Order"
+                            class="oe_highlight"/>
+
+          </header>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

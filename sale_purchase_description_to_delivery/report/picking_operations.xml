@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <template id="report_picking_inherit" inherit_id="stock.report_picking">
+            <xpath expr="//table[@class='table table-sm'][1]//thead//th[1]" position="after">
+                <th groups="sale_purchase_description_to_delivery.group_sale_order_purchase_order_description">
+                    Description
+                </th>
+            </xpath>
+            <xpath expr="//table[@class='table table-sm'][1]//tbody//td[1]" position="after">
+                <td groups="sale_purchase_description_to_delivery.group_sale_order_purchase_order_description">
+                    <span t-field="ml.move_id.description_picking"/>
+                </td>
+            </xpath>
+        </template>
+    </data>
+</odoo>

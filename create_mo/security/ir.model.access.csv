@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_create_mo_create_mo,create_mo.create_mo,create_mo.model_manufacture_order,base.group_user,1,1,1,1
+access_create_mo_line_create_mo,create_mo.create_mo_line,create_mo.model_manufacture_order_line,base.group_user,1,1,1,1
