@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="create_sale_order_and_invoice.list">
+      <field name="name">create_sale_order_and_invoice list</field>
+      <field name="model">create_sale_order_and_invoice.create_sale_order_and_invoice</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="create_sale_order_and_invoice.action_window">
+      <field name="name">create_sale_order_and_invoice window</field>
+      <field name="res_model">create_sale_order_and_invoice.create_sale_order_and_invoice</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="create_sale_order_and_invoice.action_server">
+      <field name="name">create_sale_order_and_invoice server</field>
+      <field name="model_id" ref="model_create_sale_order_and_invoice_create_sale_order_and_invoice"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="create_sale_order_and_invoice" id="create_sale_order_and_invoice.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="create_sale_order_and_invoice.menu_1" parent="create_sale_order_and_invoice.menu_root"/>
+    <menuitem name="Menu 2" id="create_sale_order_and_invoice.menu_2" parent="create_sale_order_and_invoice.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="create_sale_order_and_invoice.menu_1_list" parent="create_sale_order_and_invoice.menu_1"
+              action="create_sale_order_and_invoice.action_window"/>
+    <menuitem name="Server to list" id="create_sale_order_and_invoice" parent="create_sale_order_and_invoice.menu_2"
+              action="create_sale_order_and_invoice.action_server"/>
+-->
+  </data>
+</odoo>

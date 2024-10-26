@@ -1,0 +1,106 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="academy_student_tree_view">
+            <field name="name">academy.student.tree.view</field>
+            <field name="model">academy.student</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="mark"/>
+                    <field name="email"/>
+                    <field name="address"/>
+                    <field name="qualification"/>
+                    <field name="teacher_id"/>
+                    <field name="tag_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="academy_student_form_view">
+            <field name="name">academy.student.form.view</field>
+            <field name="model">academy.student</field>
+            <field name="arch" type="xml">
+                <form>
+
+                    <header>
+                        <button name="action_confirm" type="object" string="Confirm" invisible="state != 'draft' "
+                                class="oe_highlight"/>
+                        <button name="action_ongoing" type="object" string="Ongoing" invisible="state != 'confirm'"
+                                class="oe_highlight"/>
+                        <button name="action_done" type="object" string="Done" invisible="state != 'ongoing' "
+                                class="oe_highlight"/>
+                        <button name="action_cancel" type="object" string="Cancel" invisible="state == 'done' "
+                        />
+
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,ongoing,done"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="hobby_list" widget="many2many_tags"/>
+                            <field name="name"/>
+                            <field name="mark"/>
+                            <field name="email"/>
+                            <field name="address"/>
+                            <field name="qualification"/>
+                            <field name="teacher_id"/>
+                            <field name="tag_ids" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" options="{'open_attachments': True}"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="academy_teacher_tree_view">
+            <field name="name">academy.teacher.tree.view</field>
+            <field name="model">academy.teacher</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="phone_no"/>
+                    <field name="department"/>
+                    <field name="address"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="academy_teacher_form_view">
+            <field name="name">academy.teacher.form.view</field>
+            <field name="model">academy.teacher</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="phone_no"/>
+                            <field name="department"/>
+                            <field name="address"/>
+                            <field name="student_list" widget='one2many_list'/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="academy_student_action">
+            <field name="name">Students</field>
+            <field name="res_model">academy.student</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="academy_teacher_action">
+            <field name="name">Teachers</field>
+            <field name="res_model">academy.teacher</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

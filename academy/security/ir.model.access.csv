@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_academy_student,academy.student,model_academy_student,base.group_user,1,1,1,1
+access_academy_teacher,academy.teacher,model_academy_teacher,base.group_user,1,1,1,1
+access_academy_hobby,academy.hobby,model_academy_hobby,base.group_user,1,1,1,1
+access_academy_student_tag,academy.student.tag,model_academy_student_tag,base.group_user,1,1,1,1
+access_student_tag_lines,academy.student.tag.lines,model_academy_student_tag_lines,base.group_user,1,1,1,1

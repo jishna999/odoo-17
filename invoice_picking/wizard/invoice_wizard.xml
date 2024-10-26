@@ -1,0 +1,17 @@
+<odoo>
+    <record model="ir.ui.view" id="invoice_create_button_wizard_form">
+      <field name="name">invoice.create.wizard.form</field>
+      <field name="model">invoice.create.wizard</field>
+      <field name="arch" type="xml">
+          <form string="create invoice"/>
+          <group>
+              <field name="journal_id"/>
+              <field name="invoice_date"/>
+          </group>
+         <footer>
+             <button string="create" type="object" name="create_invoice" class="oe_highlight"/>
+             <button string="cancel" class="btn-primary" special="cancel"/>
+         </footer>
+      </field>
+    </record>
+</odoo>

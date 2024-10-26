@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="student_tags_lines_tree_view">
+            <field name="name">student.tags.lines.tree.view</field>
+            <field name="model">academy.student.tag.lines</field>
+            <field name="arch" type="xml">
+                <tree string="Student Tags" editable="bottom">
+                    <field name="student_tag_id"/>
+                    <field name="product_id"/>
+                    <field name="qty"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="academy_student_tag_lines_action" model="ir.actions.act_window">
+            <field name="name">Student Tags</field>
+            <field name="res_model">academy.student.tag.lines</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    create new student tag
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

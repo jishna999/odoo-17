@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="purchase_order_discount_inherit">
+      <field name="name">purchase.order.discount.inherit</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref="purchase.purchase_order_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//tree/field[@name='taxes_id']" position="after">
+
+          <field name="discount_on_purchase" groups="purchase_discount.group_discount_purchase"/>
+
+        </xpath>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="purchase_discount.action_window">
+      <field name="name">purchase_discount window</field>
+      <field name="res_model">purchase_discount.purchase_discount</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="purchase_discount.action_server">
+      <field name="name">purchase_discount server</field>
+      <field name="model_id" ref="model_purchase_discount_purchase_discount"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="purchase_discount" id="purchase_discount.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="purchase_discount.menu_1" parent="purchase_discount.menu_root"/>
+    <menuitem name="Menu 2" id="purchase_discount.menu_2" parent="purchase_discount.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="purchase_discount.menu_1_list" parent="purchase_discount.menu_1"
+              action="purchase_discount.action_window"/>
+    <menuitem name="Server to list" id="purchase_discount" parent="purchase_discount.menu_2"
+              action="purchase_discount.action_server"/>
+-->
+  </data>
+</odoo>

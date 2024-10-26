@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="product_form_view_group_inherit" model="ir.ui.view">
+            <field name="name">product.form.group.inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//field[@name='lst_price']" position="attributes">
+                    <attribute name="groups">show_hide_product_prices.group_sale_price</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_template_form_view_group_inherit" model="ir.ui.view">
+            <field name="name">product.template.form.group.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//field[@name='list_price']" position="attributes">
+                    <attribute name="groups">show_hide_product_prices.group_sale_price</attribute>
+                </xpath>
+                <xpath expr="//field[@name='standard_price']" position="attributes">
+                    <attribute name="groups">show_hide_product_prices.group_cost_price</attribute>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="view_product_template_kanban_group_inherit" model="ir.ui.view">
+            <field name="name">product.kanban.group.inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_kanban_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div//field[@name='lst_price']" position="attributes">
+                    <attribute name="groups">show_hide_product_prices.group_sale_price</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_product_kanban_group_inherit" model="ir.ui.view">
+            <field name="name">product.kanban.group.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_kanban_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='product_lst_price']" position="attributes">
+                    <attribute name="groups">show_hide_product_prices.group_sale_price</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_list_view_group_inherit" model="ir.ui.view">
+            <field name="name">product.form.group.inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//field[@name='lst_price']" position="attributes">
+                    <attribute name="groups">show_hide_product_prices.group_sale_price</attribute>
+                </xpath>
+                <xpath expr="//field[@name='standard_price']" position="attributes">
+                    <attribute name="groups">show_hide_product_prices.group_cost_price</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_product_template_list_group_inherit" model="ir.ui.view">
+            <field name="name">product.template.list.group.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='list_price']" position="attributes">
+                    <attribute name="groups">show_hide_product_prices.group_sale_price</attribute>
+                </xpath>
+                <xpath expr="//field[@name='standard_price']" position="attributes">
+                    <attribute name="groups">show_hide_product_prices.group_cost_price</attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

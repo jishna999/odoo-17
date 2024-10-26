@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+        <record id="sale_order_suggested_product" model="ir.ui.view">
+            <field name="name">sale.order.suggested.product</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='order_lines']" position="after">
+                    <page string="Suggested Products" name="suggested_product">
+                        <field name="suggested_product_ids" widget="one2many_list" mode="tree"
+                               readonly="state == 'cancel' or locked">
+                            <tree editable="bottom" string="Suggested Lines" limit="200">
+                                <field name="product_id" domain="[('sale_ok', '=', True)]"
+                                       options="{'no_create': True}"/>
+                                <field name="product_uom_qty"/>
+                                <field name="sale_price"/>
+                                <field name="total_amount" widget="monetary"/>
+                            </tree>
+                        </field>
+<!--                        <group name="note_group" col="6" class="mt-2 mt-md-0">-->
+<!--                            <group colspan="4">-->
+<!--                                <field colspan="2" name="note" nolabel="1" placeholder="Terms and conditions..."/>-->
+<!--                            </group>-->
+<!--                            <group class="oe_subtotal_footer" colspan="2" name="sale_total">-->
+<!--                                <field name="sale_order_suggested_product_price_total" readonly="1"/>-->
+<!--                            </group>-->
+<!--                            <div class="clearfix"/>-->
+<!--                        </group>-->
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

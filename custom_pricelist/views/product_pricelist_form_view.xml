@@ -1,0 +1,42 @@
+<odoo>
+    <record id="custom_product_pricelist_form_view" model="ir.ui.view">
+        <field name="name">custom.product.pricelist.form.view</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+        <field name="arch" type="xml">
+
+
+            <xpath expr="//field[@name='compute_price']" position="attributes">
+                <attribute name="options">{'tiered': 'Tiered'}</attribute>
+            </xpath>
+
+
+            <xpath expr="//field[@name='compute_price']" position="after">
+                <field name="product_variant_ids" string="Product Variant"
+                       groups="product.group_sale_pricelist"
+                       invisible="compute_price != 'tiered'"
+                       widget='one2many_list'/>
+            </xpath>
+
+            <xpath expr="//field[@name='product_variant_ids']" position="after">
+                <field name="tiers_ids" string="Tiers"
+                       options="{'no_open': True}"
+                       invisible="compute_price != 'tiered'"
+                       groups="product.group_sale_pricelist">
+                    <tree editable="bottom" limit="100">
+                        <field name="tier_no"  class="o_field_number"/>
+                        <field name="tier_from" string="Tier From" class="o_field_float"/>
+                        <field name="tier_to" string="Tier To" class="o_field_float"/>
+                        <field name="list_price" string="List Price" class="o_field_money"/>
+                    </tree>
+                </field>
+            </xpath>
+
+
+<!--            <xpath expr="//group[@name='group_conditions']" position="attributes">-->
+<!--                <attribute name="invisible">1</attribute>-->
+<!--            </xpath>-->
+
+        </field>
+    </record>
+</odoo>

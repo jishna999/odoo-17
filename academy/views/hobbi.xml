@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="hobby_tree_view">
+            <field name="name">hobby.tree.view</field>
+            <field name="model">academy.hobby</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="hobby_form_view">
+            <field name="name">hobby.form.view</field>
+            <field name="model">academy.hobby</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="academy_hobby_action">
+            <field name="name">Hobbies</field>
+            <field name="res_model">academy.hobby</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

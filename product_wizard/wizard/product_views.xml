@@ -1,0 +1,25 @@
+<odoo>
+    <record id="view_sale_order_add_product_wizard" model="ir.ui.view">
+        <field name="name">sale.order.add.product.wizard.form</field>
+        <field name="model">sale.order.add.product.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Add Products">
+                <tree>
+                   <field name="order_id" invisible="1"/>
+                    <field name="product_ids"/>
+                </tree>
+                <footer>
+                    <button string="Add" type="object" name="action_add_products" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sale_order_add_product_wizard" model="ir.actions.act_window">
+        <field name="name">Add Products</field>
+        <field name="res_model">sale.order.add.product.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

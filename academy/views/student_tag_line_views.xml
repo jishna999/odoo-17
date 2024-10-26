@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="student_tag_form_view">
+            <field name="name">student.tag.form.view</field>
+            <field name="model">academy.student.tag</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <notebook>
+                            <page string="Student tag Lines Form">
+                                <group>
+                                    <field name="name"/>
+                                    <field name="mobile"/>
+                                    <field name="sequence"/>
+                                </group>
+                                <group>
+                                    <field name="total"/>
+                                </group>
+                            </page>
+                            <page string="Student tag Lines">
+                                <field name="student_tag_line_ids">
+                                    <tree string="Student tag Lines" editable="bottom">
+                                        <field name="product_id"/>
+                                        <field name="qty"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="academy_student_tag_lines_view_action" model="ir.actions.act_window">
+            <field name="name">Student Tags</field>
+            <field name="res_model">academy.student.tag</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    create new student tag
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>
