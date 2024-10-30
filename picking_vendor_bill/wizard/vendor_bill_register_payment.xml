@@ -23,7 +23,6 @@
         <field name="res_model">picking.vendor.bill</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="picking_vendor_bill.picking_vendor_bill_wizard_form_view"/>
-        <field name="context">{'default_picking_id': active_id}</field>
         <field name="target">new</field>
     </record>
 </odoo>

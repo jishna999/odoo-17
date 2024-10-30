@@ -4,19 +4,9 @@ class RegisterPayment(models.TransientModel):
     _name = 'picking.vendor.bill'
     _description = 'Wizard for Vendor Bill from Picking'
 
-    picking_id = fields.Many2one(comodel_name='stock.picking', string='Picking')
+    picking_id = fields.Many2one(comodel_name='stock.picking', string='Picking',default=lambda self: self.env.context.get('active_id'))
     bill_date = fields.Date(string="Bill Date", required=True)
     journal_id = fields.Many2one('account.journal', string='Journal', required=True)
-
-    @api.model
-    def default_get(self, fields_list):
-        res = super(RegisterPayment, self).default_get(fields_list)
-        picking_id = self._context.get('default_picking_id')
-        if picking_id:
-            res.update({
-                'picking_id': picking_id,
-            })
-        return res
 
     def action_create_vendor_bill(self):
         picking = self.picking_id
@@ -47,9 +37,7 @@ class RegisterPayment(models.TransientModel):
 
             created_bill = self.env['account.move'].create(bill_vals)
             created_bill.action_post()
-
-            picking.write({'vendor_bill_ids': [(4, created_bill.id)]})
+            picking.move_ids.write({'invoice_ids': [(4, created_bill.id)]})
 
             return [created_bill.id]
 
-        return []
